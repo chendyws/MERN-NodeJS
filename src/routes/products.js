@@ -4,11 +4,11 @@ const router = express.Router();
 
 const productsController = require('../controllers/products');
 
-// CREATE -> POST
-router.get('/product', productsController.createProduct) 
+// CREATE -> POST : localhist:4000/v1/customer/product
+router.post('/product', productsController.createProduct) 
 
-// READ -> GET
-router.post('/products', productsController.getAllProducts)
+// READ -> GET localhist:4000/v1/customer/products
+router.get('/products', productsController.getAllProducts)
 
 
 
