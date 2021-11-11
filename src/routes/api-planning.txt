@@ -14,6 +14,11 @@ Standar Status Response
 500 - INTERNAL SERVER ERROR --> Error on Server Side
 501 - BAD GATEWAY           --> Invalid Response from Another Request
 
+err-response:
+201 -> Register Berhasil
+400 -> Input yang anda masukkan tidak valid
+
+
 GROUP: Authentication  
 
 [1] - Register
@@ -36,8 +41,6 @@ res:
   }
 }
 
-err-response:
-400 -> Input yang anda masukkan tidak valid
 
 [2] - Login
 {root.api}/{version}/auth/login
