@@ -50,6 +50,30 @@ res:
 GROUP: BLOG
 
 [1] -  Create Blog Post
+[POST] : {root.api}/{version}/blog/post
+
+req:
+{
+  "title" : "Title Blog",
+  "image" : "imagefile.png",
+  "body" : "Lorem ipsum is simply......"
+}
+
+res: 
+{
+  "message": "Register Success",
+  "data": {
+      "post_id": 1,
+      "title": "Title Blog",
+      "image: "imagefile.png",
+      "body": "Lorem Ipsum is simply....."
+      "created at" : "11/11/2021"
+      "author" : {
+          "uid": 1,
+          "name" : "Testing"
+      }
+  }
+}
 [2] - Get Blog Post
 [3] - Update Blog Post
 [4] - Delete Blog Post
