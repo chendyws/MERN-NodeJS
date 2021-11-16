@@ -1,10 +1,10 @@
-const {validatorResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const path = require('path');
 const fs = require('fs');
 const BlogPost = require('../models/blog');
 
 exports.createBlogPost = (req, res, next) => {
-  const errors = validatorResult(req);
+  const errors = validationResult(req)
 
   if(!errors.isEmpty()){
     const err = new Error('Input value tidak sesuai');
@@ -13,11 +13,16 @@ exports.createBlogPost = (req, res, next) => {
     throw err;
   }
 
-    if(!req.file) {
-      const err = new Error('Image Harus Di Upload');
-      err.errorStatus = 422;
-      throw err;
-    }
+  if(!req.file) {
+    const err = new Error('Image Harus Di Upload');
+    err.errorStatus = 422;
+    throw err;
+  }
+
+  return res.status(201).json({
+    message: 'Create Blog Success',
+    data: req
+  });
 
   const title = req.body.title;
   const image = req.file.path;
